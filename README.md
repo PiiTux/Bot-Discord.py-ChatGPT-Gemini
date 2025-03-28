@@ -41,7 +41,7 @@ Il garde un œil sur les salons que tu as choisis ou attend juste une petite men
 
 1. **Crée un fichier `.env`** : À la racine du projet, ajoute un fichier `.env` pour stocker les infos sensibles.
 2. **Ajoute-y ton token Discord** : Ajoute cette ligne dans ton fichier `.env` pour que le bot puisse se connecter :
-    ```
+    ```env
     DISCORD_TOKEN = VOTRE_TOKEN_DISCORD_ICI
     ```
 3. **Configure les clés API** : Si tu utilises ChatGPT ou Gemini, ajoute leurs clés API dans le fichier `.env` comme ça :
