@@ -18,10 +18,10 @@ HISTORY_LENGTH = config["SETTINGS"].getint("HISTORY_LENGTH")
 
 # Si le fichier .env existe
 if path.exists(".env"):
-    # Chargement des variables d'environnement à partir du fichier .env
+    # Chargement des variables d’environnement à partir du fichier .env
     load_dotenv()
 
-# Création de l'activité
+# Création de l’activité
 activity = Activity(name=ACTIVITY_NAME, type=ACTIVITY_TYPE)
 
 # Création des intents pour le client Discord
@@ -31,7 +31,7 @@ intents.message_content = True
 # Création du client Discord
 client = Client(activity=activity, intents=intents)
 
-# Création de l'instance OpenAI
+# Création de l’instance OpenAI
 if MODEL.startswith("gpt-"):
     openai = OpenAI()
 elif MODEL.startswith("gemini-"):
@@ -46,10 +46,10 @@ async def on_ready():
     print(f"Connecté en tant que {client.user}")
 
 
-# Événement déclenché lorsqu'un message est envoyé
+# Événement déclenché lorsqu’un message est envoyé
 @client.event
 async def on_message(message):
-    # Vérification que le message n'est pas envoyé par un bot et qu'il n'est pas vide
+    # Vérification que le message n’est pas envoyé par un bot et qu’il n’est pas vide
     if message.author.bot or not message.content:
         return
     # Vérification que le bot est mentionné dans le message ou que le message est envoyé dans un salon autorisé
@@ -64,9 +64,9 @@ async def on_message(message):
         }
     ]
 
-    # Envoi d'une indication que le bot est en train d'écrire
+    # Envoi d’une indication que le bot est en train d’écrire
     async with message.channel.typing():
-        # Récupération de l'historique des messages du salon
+        # Récupération de l’historique des messages du salon
         async for msg in message.channel.history(limit=HISTORY_LENGTH):
             # Si le message a été envoyé par un autre bot ou est vide, on passe au suivant
             if (msg.author.bot and msg.author != client.user) or not msg.content:
@@ -81,10 +81,10 @@ async def on_message(message):
                 }
             )
 
-        # Inversion de l'ordre des messages
+        # Inversion de l’ordre des messages
         messages.reverse()
 
-        # Appel à l'API OpenAI pour générer une réponse
+        # Appel à l’API OpenAI pour générer une réponse
         completion = openai.chat.completions.create(
             model=MODEL,
             messages=messages,
@@ -94,5 +94,5 @@ async def on_message(message):
         await message.reply(completion.choices[0].message.content)
 
 
-# Démarrage du client Discord avec le jeton d'accès
+# Démarrage du client Discord avec le jeton d’accès
 client.run(getenv("DISCORD_TOKEN"))

@@ -4,7 +4,7 @@ Bienvenue sur ton super bot Discord qui répond en mode **ChatGPT** ou **Gemini*
 
 ## Fonctionnalités 🔥
 
-- 📩 Répond aux messages dans les salons configurés ou s'il est mentionné.
+- 📩 Répond aux messages dans les salons configurés ou s’il est mentionné.
 - ✨ Choisis entre ChatGPT ou Gemini pour les réponses.
 - 🔧 Configuration ultra simple grâce au fichier `settings.ini` !
 - ⚡ Léger et rapide, grâce à `discord.py` (la magie Python 🐍).
@@ -18,7 +18,7 @@ Il garde un œil sur les salons que tu as choisis, ou attend gentiment d’être
 ### 📋 Prérequis
 - Python (version 3.8 ou supérieure). Si tu as une version plus vieille… c’est probablement le moment de la mettre à jour 😉
 
-### 🚀 Étapes d'installation
+### 🚀 Étapes d’installation
 
 1. Clone le dépôt :
     ```bash
@@ -49,12 +49,12 @@ Il garde un œil sur les salons que tu as choisis, ou attend gentiment d’être
     OPENAI_API_KEY = Votre_clé_API_OpenAI_ici
     GEMINI_API_KEY = Votre_clé_API_Gemini_ici
     ```
-4. **Paramètres dans `settings.ini`** : Le bot est configuré grâce à un fichier `settings.ini` ultra simple. Voici une explication rapide de ce que tu peux configurer :
+4. **Paramètres dans `settings.ini`** : Le bot se configure avec un fichier `settings.ini` ultra simple (presque trop facile, genre pas d’excuses !). Voilà ce que tu peux modifier pour faire tourner la bête :
 - **`PROMPT`** : C’est la personnalité de ton assistant ! Si tu veux qu’il soit plus sérieux, plus drôle, ou même qu’il fasse des blagues pourries, tu peux changer ce texte. 😜
 - **`MODEL`** : C’est là que tu choisis quel modèle utiliser : **ChatGPT** ou **Gemini** (par exemple `gemini-2.0-flash` ou `gpt-4o-mini`). C’est toi qui choisis ! 🚀
 - **`CHANNELS`** : Mets ici les ID des salons où ton bot doit répondre. Sépare-les par des virgules (exemple : `123456789, 987654321`). Il surveillera ces salons pour les messages. 📲
 - **`ACTIVITY_NAME` et `ACTIVITY_TYPE`** : L’activité du bot, genre ce qu’il fait sur Discord. Par exemple, il peut "jouer à répondre aux questions". 🎮
-- **`HISTORY_LENGTH`** : C’est le nombre de messages que le bot garde en mémoire pour répondre de manière plus cohérente. Plus c'est long, plus il a d’infos, mais il consomme aussi plus de ressources. 📚
+- **`HISTORY_LENGTH`** : C’est le nombre de messages que le bot garde en mémoire pour répondre de manière plus cohérente. Plus c’est long, plus il a d’infos, mais il consomme aussi plus de ressources. 📚
 
 ## 🚀 Démarrage du bot
 
@@ -80,14 +80,14 @@ Si le bot joue les troubles-fêtes, voici quelques vérifications :
      ```
      DISCORD_TOKEN = VOTRE_TOKEN_DISCORD_ICI
      ```
-   - Assure-toi qu'il n’a pas été révoqué via le [portail des développeurs Discord](https://discord.com/developers/applications).
+   - Assure-toi qu’il n’a pas été révoqué via le [portail des développeurs Discord](https://discord.com/developers/applications).
 
 2. **Le fichier `settings.ini`**
    - Vérifie que les ID des salons sont corrects :
      ```ini
      CHANNELS = 0000000000000000000, 0000000000000000000
      ```
-   - Le bot doit avoir la permission d'envoyer des messages dans ces salons.
+   - Le bot doit avoir la permission d’envoyer des messages dans ces salons.
    - Vérifie le modèle est bien choisi (gemini-2.0-flash-lite, gemini-2.0-flash, gpt-4o-mini, gpt-4o, ...).
      ```ini
      MODEL = gemini-2.0-flash
@@ -104,4 +104,4 @@ Si le bot joue les troubles-fêtes, voici quelques vérifications :
 
 ## 📜 Licence
 
-Ce projet est sous licence Apache 2.0. Consulte le fichier [LICENSE](LICENSE) pour plus d'infos.
+Ce projet est sous licence Apache 2.0. Consulte le fichier [LICENSE](LICENSE) pour plus d’infos.
