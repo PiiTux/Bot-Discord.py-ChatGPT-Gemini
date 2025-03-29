@@ -11,7 +11,7 @@ Bienvenue sur ton super bot Discord qui répond en mode **ChatGPT** ou **Gemini*
 
 ## 💡 Comment ça marche ?
 
-Il garde un œil sur les salons que tu as choisis ou attend juste une petite mention Discord pour te répondre direct ! 🎉
+Il garde un œil sur les salons que tu as choisis, ou attend gentiment d’être invoqué par ta mention Discord comme un démon en quête d’âme à torturer, prêt à répondre ~~en échange de quelques sacrifices~~ ! 👹
 
 ## 📦 Installation
 
