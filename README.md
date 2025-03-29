@@ -50,11 +50,11 @@ Il garde un œil sur les salons que tu as choisis, ou attend gentiment d’être
     GEMINI_API_KEY = Votre_clé_API_Gemini_ici
     ```
 4. **Paramètres dans `settings.ini`** : Le bot se configure avec un fichier `settings.ini` ultra simple (presque trop facile, genre pas d’excuses !). Voilà ce que tu peux modifier pour faire tourner la bête :
-- **`PROMPT`** : C’est la personnalité de ton assistant ! Si tu veux qu’il soit plus sérieux, plus drôle, ou même qu’il fasse des blagues pourries, tu peux changer ce texte. 😜
-- **`MODEL`** : C’est là que tu choisis quel modèle utiliser : **ChatGPT** ou **Gemini** (par exemple `gemini-2.0-flash` ou `gpt-4o-mini`). C’est toi qui choisis ! 🚀
-- **`CHANNELS`** : Mets ici les ID des salons où ton bot doit répondre. Sépare-les par des virgules (exemple : `123456789, 987654321`). Il surveillera ces salons pour les messages. 📲
-- **`ACTIVITY_NAME` et `ACTIVITY_TYPE`** : L’activité du bot, genre ce qu’il fait sur Discord. Par exemple, il peut "jouer à répondre aux questions". 🎮
-- **`HISTORY_LENGTH`** : C’est le nombre de messages que le bot garde en mémoire pour répondre de manière plus cohérente. Plus c’est long, plus il a d’infos, mais il consomme aussi plus de ressources. 📚
+   - **`PROMPT`** : C’est la personnalité de ton assistant ! Si tu veux qu’il soit plus sérieux, plus drôle, ou même qu’il fasse des blagues pourries, tu peux changer ce texte. 😜
+   - **`MODEL`** : C’est là que tu choisis quel modèle utiliser : **ChatGPT** ou **Gemini** (par exemple `gemini-2.0-flash` ou `gpt-4o-mini`). C’est toi qui choisis ! 🚀
+   - **`CHANNELS`** : Mets ici les ID des salons où ton bot doit répondre. Sépare-les par des virgules (exemple : `123456789, 987654321`). Il surveillera ces salons pour les messages. 📲
+   - **`ACTIVITY_NAME` et `ACTIVITY_TYPE`** : L’activité du bot, genre ce qu’il fait sur Discord. Par exemple, il peut "jouer à répondre aux questions". 🎮
+   - **`HISTORY_LENGTH`** : C’est le nombre de messages que le bot garde en mémoire pour répondre de manière plus cohérente. Plus c’est long, plus il a d’infos, mais il consomme aussi plus de ressources. 📚
 
 ## 🚀 Démarrage du bot
 
