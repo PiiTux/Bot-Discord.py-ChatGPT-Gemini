@@ -58,11 +58,11 @@ Il garde un œil sur les salons que tu as choisis ou attend juste une petite men
 
 ## 🚀 Démarrage du bot
 
-1. Une fois que tu as tout configuré, tu peux lancer ton bot avec cette commande :
+1. Une fois que tu as tout configuré, tu peux lancer ton bot ~~violemment contre un mur~~ avec cette commande :
     ```bash
     python3 main.py
     ```
-2. Pour l’exécuter en arrière-plan :
+2. Pour l’exécuter en ~~le forçant à traverser une autoroute en trottinette sans freins~~ arrière-plan, tu peux utiliser cette commande :
     ```bash
     nohup python3 main.py &
     ```
@@ -73,7 +73,7 @@ Il garde un œil sur les salons que tu as choisis ou attend juste une petite men
 
 ## 🛠️ Dépannage
 
-Si tu rencontres des problèmes, voici quelques trucs à vérifier :
+Si le bot joue les troubles-fêtes, voici quelques vérifications :
 
 1. **Vérifie ton token Discord**
    - Ton fichier `.env` doit contenir la ligne suivante avec un token valide :
@@ -83,7 +83,15 @@ Si tu rencontres des problèmes, voici quelques trucs à vérifier :
    - Assure-toi qu'il n’a pas été révoqué via le [portail des développeurs Discord](https://discord.com/developers/applications).
 
 2. **Le fichier `settings.ini`**
-   - Vérifie que les ID des salons sont corrects et que le modèle est bien choisi (Gemini ou ChatGPT).
+   - Vérifie que les ID des salons sont corrects :
+     ```ini
+     CHANNELS = 0000000000000000000, 0000000000000000000
+     ```
+   - Le bot doit avoir la permission d'envoyer des messages dans ces salons.
+   - Vérifie le modèle est bien choisi (gemini-2.0-flash-lite, gemini-2.0-flash, gpt-4o-mini, gpt-4o, ...).
+     ```ini
+     MODEL = gemini-2.0-flash
+     ```
 
 3. **Les dépendances sont-elles installées ?**
    - Assure-toi que tout est bien installé :
