@@ -62,7 +62,7 @@ Il garde un œil sur les salons que tu as choisis ou attend juste une petite men
     ```bash
     python3 main.py
     ```
-2. Pour l’exécuter en ~~le forçant à traverser une autoroute en trottinette sans freins~~ arrière-plan, tu peux utiliser cette commande :
+2. Pour l’exécuter ~~sur la place publique~~ en arrière-plan, tu peux utiliser cette commande :
     ```bash
     nohup python3 main.py &
     ```
