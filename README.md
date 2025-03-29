@@ -58,11 +58,11 @@ Il garde un œil sur les salons que tu as choisis ou attend juste une petite men
 
 ## 🚀 Démarrage du bot
 
-1. Une fois que tu as tout configuré, tu peux lancer ton bot ~~violemment contre un mur~~ avec cette commande :
+1. Une fois que tu as tout configuré, tu peux lancer ton bot (pas trop violemment) avec cette commande :
     ```bash
     python3 main.py
     ```
-2. Pour l’exécuter ~~sur la place publique~~ en arrière-plan, tu peux utiliser cette commande :
+2. Pour l’exécuter en arrière-plan sans trop de souffrance (promis, il ne criera pas), tu peux utiliser cette commande :
     ```bash
     nohup python3 main.py &
     ```
