@@ -1,28 +1,45 @@
 # Importation des modules nécessaires
+from shutil import copy
 from os import getenv, path
 from dotenv import load_dotenv
 from configparser import ConfigParser
 from discord import Activity, ActivityType, Client, Intents
 from openai import OpenAI
 
+# Vérification que le fichier "settings.ini" existe
+if not path.exists("settings.ini"):
+    # Vérifier si "settings.example.ini" existe
+    if not path.exists("settings.example.ini"):
+        # Lever une exception si "settings.example.ini" est introuvable
+        raise FileNotFoundError("Les fichiers \"settings.ini\" et \"settings.example.ini\" sont introuvables.")
+
+    # Copie du fichier "settings.example.ini" vers "settings.ini"
+    copy("settings.example.ini", "settings.ini")
+
 # Chargement du fichier de configuration
 config = ConfigParser()
 config.read("settings.ini")
-PROMPT = config["SETTINGS"]["PROMPT"]
-MODEL = config["SETTINGS"]["MODEL"]
-CHANNELS = tuple(map(int, config["SETTINGS"]["CHANNELS"].split(",")))
-ACTIVITY_NAME = config["SETTINGS"]["ACTIVITY_NAME"]
-activity_type_str = config["SETTINGS"]["ACTIVITY_TYPE"]
-ACTIVITY_TYPE = getattr(ActivityType, activity_type_str, None)
-HISTORY_LENGTH = config["SETTINGS"].getint("HISTORY_LENGTH")
+PROMPT = config["SETTINGS"].get("PROMPT", "")
+MODEL = config["SETTINGS"].get("MODEL", "gemini-2.0-flash") or "gemini-2.0-flash"
+CHANNELS = tuple(map(int, config["SETTINGS"]["CHANNELS"].split(","))) if "CHANNELS" in config["SETTINGS"] else (0,)
+ACTIVITY_NAME = config["SETTINGS"].get("ACTIVITY_NAME", None)
+activity_type_str = config["SETTINGS"].get("ACTIVITY_TYPE", None)
+ACTIVITY_TYPE = getattr(ActivityType, activity_type_str, None) if activity_type_str else None
+HISTORY_LENGTH = max(1, config["SETTINGS"].getint("HISTORY_LENGTH")) if "HISTORY_LENGTH" in config["SETTINGS"] else 1
 
 # Si le fichier .env existe
 if path.exists(".env"):
     # Chargement des variables d’environnement à partir du fichier .env
     load_dotenv()
 
+# Récupération du jeton d’accès Discord à partir des variables d’environnement
+DISCORD_TOKEN = getenv("DISCORD_TOKEN")
+
+if not DISCORD_TOKEN:
+    raise ValueError("Aucun jeton d’accès Discord trouvé dans le fichier .env ou dans les variables d’environnement")
+
 # Création de l’activité
-activity = Activity(name=ACTIVITY_NAME, type=ACTIVITY_TYPE)
+activity = Activity(name=ACTIVITY_NAME, type=ACTIVITY_TYPE) if ACTIVITY_TYPE and ACTIVITY_NAME else None
 
 # Création des intents pour le client Discord
 intents = Intents.default()
@@ -95,4 +112,4 @@ async def on_message(message):
 
 
 # Démarrage du client Discord avec le jeton d’accès
-client.run(getenv("DISCORD_TOKEN"))
+client.run(DISCORD_TOKEN)
