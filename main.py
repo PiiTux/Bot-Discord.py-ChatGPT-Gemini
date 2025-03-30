@@ -23,9 +23,9 @@ PROMPT = config["SETTINGS"].get("PROMPT", "")
 MODEL = config["SETTINGS"].get("MODEL", "gemini-2.0-flash") or "gemini-2.0-flash"
 CHANNELS = tuple(map(int, config["SETTINGS"]["CHANNELS"].split(","))) if "CHANNELS" in config["SETTINGS"] else (0,)
 ACTIVITY_NAME = config["SETTINGS"].get("ACTIVITY_NAME", None)
-activity_type_str = config["SETTINGS"].get("ACTIVITY_TYPE", None)
-ACTIVITY_TYPE = getattr(ActivityType, activity_type_str, None) if activity_type_str else None
-HISTORY_LENGTH = max(1, config["SETTINGS"].getint("HISTORY_LENGTH")) if "HISTORY_LENGTH" in config["SETTINGS"] else 1
+activity_type = config["SETTINGS"].get("ACTIVITY_TYPE", None)
+ACTIVITY_TYPE = getattr(ActivityType, activity_type, None) if activity_type else None
+HISTORY_LENGTH = max(1, config["SETTINGS"].getint("HISTORY_LENGTH", 1))
 
 # Si le fichier .env existe
 if path.exists(".env"):
