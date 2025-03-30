@@ -112,4 +112,4 @@ async def on_message(message):
 
 
 # Démarrage du client Discord avec le jeton d’accès
-client.run(DISCORD_TOKEN)
+client.run(DISCORD_TOKEN, log_handler=None)
