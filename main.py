@@ -6,19 +6,20 @@ from configparser import ConfigParser
 from discord import Activity, ActivityType, Client, Intents
 from openai import OpenAI
 
-# Vérification que le fichier "settings.ini" existe
-if not path.exists("settings.ini"):
-    # Vérifier si "settings.example.ini" existe
-    if not path.exists("settings.example.ini"):
-        # Lever une exception si "settings.example.ini" est introuvable
-        raise FileNotFoundError("Les fichiers \"settings.ini\" et \"settings.example.ini\" sont introuvables.")
-
+# Vérification de l’existence du fichier de configuration "settings.ini"
+if not path.exists("settings.ini") and path.exists("settings.example.ini"):
     # Copie du fichier "settings.example.ini" vers "settings.ini"
     copy("settings.example.ini", "settings.ini")
 
 # Chargement du fichier de configuration
 config = ConfigParser()
 config.read("settings.ini")
+
+# Vérification que la section "SETTINGS" existe dans le fichier de configuration
+if "SETTINGS" not in config:
+    # Si la section "SETTINGS" n'existe pas, on la crée
+    config["SETTINGS"] = {}
+
 PROMPT = config["SETTINGS"].get("PROMPT", "")
 MODEL = config["SETTINGS"].get("MODEL", "gemini-2.0-flash") or "gemini-2.0-flash"
 CHANNELS = tuple(map(int, config["SETTINGS"]["CHANNELS"].split(","))) if "CHANNELS" in config["SETTINGS"] else (0,)
