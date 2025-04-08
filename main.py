@@ -17,7 +17,7 @@ config.read("settings.ini")
 
 # Vérification que la section "SETTINGS" existe dans le fichier de configuration
 if "SETTINGS" not in config:
-    # Si la section "SETTINGS" n'existe pas, on la crée
+    # Si la section "SETTINGS" n’existe pas, on la crée
     config["SETTINGS"] = {}
 
 PROMPT = config["SETTINGS"].get("PROMPT", "")
